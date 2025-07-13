@@ -11,6 +11,7 @@ public class WorldInteractionManager : MonoBehaviour
     public IInteractable lastHoveredInteractable;
     [ReadOnly]
     public IInteractable currentlyHeldInteractable;
+    public bool isMainMenu;
 
     private Camera cam;
     public static WorldInteractionManager global;
@@ -26,6 +27,13 @@ public class WorldInteractionManager : MonoBehaviour
     {
         Ray cameraRay = cam.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(cameraRay.origin, cameraRay.direction, Color.red);
+        if (!isMainMenu)
+        {
+            if (!StatsManager.global.gameRunning)
+            {
+                return;
+            }
+        }
         if (Physics.Raycast(cameraRay, out RaycastHit hitInfo))
         {
             mouseWorldPosition = hitInfo.point;

@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Powerbutton_Emission
     second: {fileID: 2100000, guid: 237a13f46e4df2949b37a99d9eca099d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire
+    second: {fileID: 2100000, guid: 0aeddba4462bd68408e90b73b000f9ad, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

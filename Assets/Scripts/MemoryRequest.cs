@@ -46,7 +46,8 @@ public class MemoryRequest : IInteractable
         }
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleTarget), Time.deltaTime * moveLerpSpeed);
 
-        expiryTimer -= Time.deltaTime;
+        if (StatsManager.global.gameRunning)
+            expiryTimer -= Time.deltaTime;
         expiryBar.fillAmount = expiryTimer / startTimer;
 
         if (expiryTimer <= 0)

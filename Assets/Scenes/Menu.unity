@@ -2921,7 +2921,7 @@ MonoBehaviour:
   - text: '> USER INPUT ENABLED'
     delayToNext: 0
   displayText: {fileID: 487109174}
-  typingSpeed: 0.025
+  typingSpeed: 0.015
   howToPlay: "=============== HOW TO PLAY ===============\nINCOMING MEMORY REQUESTS
     WILL TRAVEL ON THE CONVEYOR BELT. PROCESS THEM BEFORE THEY EXPIRE TO PREVENT
     CACHE MISSES.\n\n> Click and drag memory tiles from the belt\n> Drop them into

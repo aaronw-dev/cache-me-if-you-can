@@ -65,12 +65,20 @@ PrefabInstance:
       value: 4294901962
       objectReference: {fileID: 0}
     - target: {fileID: 6202300749507580419, guid: 550466a24a2bdf34fbf906ef87da887c, type: 3}
+      propertyPath: score
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202300749507580419, guid: 550466a24a2bdf34fbf906ef87da887c, type: 3}
       propertyPath: expiryTimer
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6202300749507580419, guid: 550466a24a2bdf34fbf906ef87da887c, type: 3}
       propertyPath: memoryLevel
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202300749507580419, guid: 550466a24a2bdf34fbf906ef87da887c, type: 3}
+      propertyPath: temperatureImpact
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7751897064427740110, guid: 550466a24a2bdf34fbf906ef87da887c, type: 3}
       propertyPath: m_LocalPosition.x

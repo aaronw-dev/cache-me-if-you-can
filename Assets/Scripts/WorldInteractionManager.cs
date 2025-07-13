@@ -63,6 +63,10 @@ public class WorldInteractionManager : MonoBehaviour
                         currentlyHoveringInteractable.DropOn(currentlyHeldInteractable);
                         MemoryRequestSpawner.global.spawnMemoryRequest();
                         CPUTemperature.global.temperature -= request.temperatureImpact;
+
+                        StatsManager.stats.successfulOperations++;
+                        StatsManager.stats.streak++;
+                        StatsManager.stats.score += request.score;
                     }
                 }
 

@@ -28,6 +28,7 @@ public class MemoryRequest : IInteractable
     public ParticleSystem destroyParticles;
     [Header("Game")]
     public float temperatureImpact = 5;
+    public int score = 200;
     private void Start()
     {
         positionTarget = transform.position;

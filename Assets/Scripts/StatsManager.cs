@@ -27,6 +27,7 @@ public class StatsManager : MonoBehaviour
     void Update()
     {
         gameDuration += Time.deltaTime;
+        score = Math.Clamp(score, 0, 999999);
 
         if (scoreText)
         {

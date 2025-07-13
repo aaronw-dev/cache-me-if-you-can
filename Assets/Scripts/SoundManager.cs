@@ -9,7 +9,15 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] errorSounds;
     private void Start()
     {
-        global = this;
+        if (global == null)
+        {
+            global = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void PlaySound(AudioClip clip, float volume = 0.5f)

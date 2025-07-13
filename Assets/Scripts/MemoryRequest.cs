@@ -29,6 +29,7 @@ public class MemoryRequest : IInteractable
     [Header("Game")]
     public float temperatureImpact = 5;
     public int score = 200;
+    public int expiryPenalty = 100;
     private void Start()
     {
         positionTarget = transform.position;
@@ -54,6 +55,8 @@ public class MemoryRequest : IInteractable
             destroyParticles.Play();
             MemoryRequestSpawner.global.spawnMemoryRequest();
             SoundManager.global.Error();
+            StatsManager.global.score -= expiryPenalty;
+            CPUTemperature.global.temperature += 5;
             Destroy(gameObject);
         }
     }

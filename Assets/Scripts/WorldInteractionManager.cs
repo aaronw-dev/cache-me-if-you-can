@@ -14,6 +14,9 @@ public class WorldInteractionManager : MonoBehaviour
 
     private Camera cam;
     public static WorldInteractionManager global;
+
+    [Header("SFX")]
+    public AudioClip success;
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -64,9 +67,11 @@ public class WorldInteractionManager : MonoBehaviour
                         MemoryRequestSpawner.global.spawnMemoryRequest();
                         CPUTemperature.global.temperature -= request.temperatureImpact;
 
-                        StatsManager.stats.successfulOperations++;
-                        StatsManager.stats.streak++;
-                        StatsManager.stats.score += request.score;
+                        StatsManager.global.successfulOperations++;
+                        StatsManager.global.streak++;
+                        StatsManager.global.score += request.score;
+
+                        SoundManager.global.PlaySound(success, 0.5f);
                     }
                 }
 

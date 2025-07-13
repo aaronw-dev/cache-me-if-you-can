@@ -1,23 +1,26 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
-    public static StatsManager stats;
+    public static StatsManager global;
     [Header("Stats")]
     public int score;
+    private int shownScore;
     public int streak;
     public int successfulOperations;
     public float gameDuration;
     [Header("Text/UI")]
     public TMP_Text scoreText;
+    public float scoreCountSpeed = 10;
     public TMP_Text streakText;
     public TMP_Text successfulText;
     public TMP_Text durationText;
     void Start()
     {
-        stats = this;
+        global = this;
         gameDuration = 0;
     }
 
@@ -27,7 +30,15 @@ public class StatsManager : MonoBehaviour
 
         if (scoreText)
         {
-            scoreText.text = score.ToString();
+            if (shownScore < score)
+            {
+                shownScore = (int)Math.Ceiling(Mathf.Lerp(shownScore, score, Time.deltaTime * scoreCountSpeed));
+            }
+            else
+            {
+                shownScore = (int)Math.Floor(Mathf.Lerp(shownScore, score, Time.deltaTime * scoreCountSpeed));
+            }
+            scoreText.text = shownScore.ToString();
         }
         if (streakText)
         {

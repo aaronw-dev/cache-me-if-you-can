@@ -53,6 +53,7 @@ public class MemoryRequest : IInteractable
             destroyParticles.transform.parent = null;
             destroyParticles.Play();
             MemoryRequestSpawner.global.spawnMemoryRequest();
+            SoundManager.global.Error();
             Destroy(gameObject);
         }
     }

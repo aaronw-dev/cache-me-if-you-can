@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6202300749507580419, guid: 550466a24a2bdf34fbf906ef87da887c, type: 3}
       propertyPath: score
-      value: 750
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6202300749507580419, guid: 550466a24a2bdf34fbf906ef87da887c, type: 3}
       propertyPath: expiryTimer

@@ -12,10 +12,10 @@ public class WorldButton : IInteractable
     public Material enabledMaterial;
     public Material disabledMaterial;
     public float colorLerpSpeed = 5;
-    private Renderer renderer;
+    private Renderer buttonRenderer;
     private void Start()
     {
-        renderer = buttonModel.GetComponent<Renderer>();
+        buttonRenderer = buttonModel.GetComponent<Renderer>();
     }
     private void Update()
     {
@@ -25,7 +25,7 @@ public class WorldButton : IInteractable
             buttonModel.localPosition = Vector3.Lerp(buttonModel.localPosition, Vector3.down * hoverDepth, Time.deltaTime * lerpSpeed);
         else
             buttonModel.localPosition = Vector3.Lerp(buttonModel.localPosition, Vector3.zero, Time.deltaTime * lerpSpeed);
-        renderer.material.Lerp(renderer.material, buttonEnabled ? enabledMaterial : disabledMaterial, Time.deltaTime * colorLerpSpeed);
+        buttonRenderer.material.Lerp(buttonRenderer.material, buttonEnabled ? enabledMaterial : disabledMaterial, Time.deltaTime * colorLerpSpeed);
     }
     public void SetButtonEnabled(bool enabled)
     {

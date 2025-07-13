@@ -9,17 +9,7 @@ public class StatsManager : MonoBehaviour
     [Header("Stats")]
     public int score;
     private int shownScore;
-    public int streak
-    {
-        get { return streak; }
-        set
-        {
-            streak = value; if (value > highestStreak)
-            {
-                highestStreak = value;
-            }
-        }
-    }
+    public int streak;
     public int highestStreak;
     public int successfulOperations;
     public float gameDuration;

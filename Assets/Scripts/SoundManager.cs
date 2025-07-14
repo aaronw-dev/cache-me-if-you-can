@@ -26,7 +26,6 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     public IEnumerator PlaySoundtracksSequentially()
     {
         while (soundtracks != null && soundtracks.Length > 0)

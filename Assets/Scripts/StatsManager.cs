@@ -68,6 +68,10 @@ public class StatsManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
         overclocked = false;
     }
+    public void StartMusic()
+    {
+        SoundManager.global.soundtrackAudioSource.Play();
+    }
 
     void Update()
     {

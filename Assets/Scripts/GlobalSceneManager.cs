@@ -6,6 +6,7 @@ public class GlobalSceneManager : MonoBehaviour
 
     void Awake()
     {
+        /*
         if (global == null)
         {
             global = this;
@@ -14,7 +15,7 @@ public class GlobalSceneManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
     public void LoadScene(string sceneName)

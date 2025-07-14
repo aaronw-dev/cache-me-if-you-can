@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -7,16 +8,33 @@ public class SoundManager : MonoBehaviour
     public static SoundManager global;
     [Header("SFX")]
     public AudioClip[] errorSounds;
+
+    [Header("Soundtracks")]
+    public AudioClip[] soundtracks;
+    private int currentSoundtrackIndex = 0;
+
     private void Start()
     {
         if (global == null)
         {
             global = this;
             DontDestroyOnLoad(gameObject);
+            StartCoroutine(PlaySoundtracksSequentially());
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public IEnumerator PlaySoundtracksSequentially()
+    {
+        while (soundtracks != null && soundtracks.Length > 0)
+        {
+            soundtrackAudioSource.clip = soundtracks[currentSoundtrackIndex];
+            soundtrackAudioSource.Play();
+            yield return new WaitForSeconds(soundtrackAudioSource.clip.length + 1f);
+            currentSoundtrackIndex = (currentSoundtrackIndex + 1) % soundtracks.Length;
         }
     }
 

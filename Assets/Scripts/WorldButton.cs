@@ -44,5 +44,5 @@ public class WorldButton : IInteractable
 
     public override void Drop() { }
 
-    public override void DropOn(IInteractable dropped) { }
+    public override bool DropOn(IInteractable dropped) { return false; }
 }

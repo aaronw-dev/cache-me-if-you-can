@@ -14,5 +14,5 @@ public abstract class IInteractable : MonoBehaviour
     public abstract void HoverExit();
     public abstract void Grab();
     public abstract void Drop();
-    public abstract void DropOn(IInteractable dropped);
+    public abstract bool DropOn(IInteractable dropped);
 }

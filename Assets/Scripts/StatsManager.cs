@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -33,9 +34,12 @@ public class StatsManager : MonoBehaviour
     public TMP_Text endScoreText;
     public TMP_Text endTimeText;
     public TMP_Text endStreakText;
+    [Header("Game State")]
+    public bool overclocked;
 
     [HideInInspector]
     public bool gameRunning = true;
+    Coroutine overclockCoroutine;
     void Start()
     {
         global = this;
@@ -50,6 +54,21 @@ public class StatsManager : MonoBehaviour
         endTimeText.text = $"Time: {gameTime}";
         endStreakText.text = $"Highest streak: {highestStreak} tiles";
     }
+
+    public void Overclock(float duration)
+    {
+        if (overclockCoroutine != null)
+            StopCoroutine(overclockCoroutine);
+        overclockCoroutine = StartCoroutine(setOverclock(duration));
+    }
+
+    public IEnumerator setOverclock(float duration)
+    {
+        overclocked = true;
+        yield return new WaitForSeconds(duration);
+        overclocked = false;
+    }
+
     void Update()
     {
         if (gameRunning)

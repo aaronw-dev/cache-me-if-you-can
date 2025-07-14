@@ -16,6 +16,7 @@ public class CPUTemperature : MonoBehaviour
     public GameObject blueScreen;
     public AudioClip blueScreenSFX;
     public bool blueScreened;
+    float shownTemp;
     void Start()
     {
         global = this;
@@ -29,7 +30,8 @@ public class CPUTemperature : MonoBehaviour
             temperature += Time.deltaTime * temperatureIncreaseSpeed;
             temperature = Mathf.Clamp(temperature, 30, 120);
         }
-        thermometerText.text = Math.Round(temperature, 0).ToString(CultureInfo.InvariantCulture) + " C";
+        thermometerText.text = Math.Round(temperature, 3).ToString("F1", CultureInfo.InvariantCulture) + " C";
+
 
         if (temperature >= 120 && !blueScreened)
         {

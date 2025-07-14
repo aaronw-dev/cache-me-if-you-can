@@ -71,15 +71,18 @@ public class WorldInteractionManager : MonoBehaviour
                     CacheDropper cacheDropper = currentlyHoveringInteractable.GetComponent<CacheDropper>();
                     if (request.memoryLevel == cacheDropper.memoryLevel)
                     {
-                        currentlyHoveringInteractable.DropOn(currentlyHeldInteractable);
-                        MemoryRequestSpawner.global.spawnMemoryRequest();
-                        CPUTemperature.global.temperature -= request.temperatureImpact;
+                        bool dropSuccess = currentlyHoveringInteractable.DropOn(currentlyHeldInteractable);
+                        if (dropSuccess)
+                        {
+                            MemoryRequestSpawner.global.spawnMemoryRequest();
+                            CPUTemperature.global.temperature -= request.temperatureImpact;
 
-                        StatsManager.global.successfulOperations++;
-                        StatsManager.global.streak++;
-                        StatsManager.global.score += request.score;
+                            StatsManager.global.successfulOperations++;
+                            StatsManager.global.streak++;
+                            StatsManager.global.score += request.score;
 
-                        SoundManager.global.PlaySound(success, 0.5f);
+                            SoundManager.global.PlaySound(success, 0.5f);
+                        }
                     }
                 }
 

@@ -7,6 +7,7 @@ public enum MemoryLevel
     L1,
     L2,
     L3,
+    POWERUP
 }
 public class MemoryRequest : IInteractable
 {
@@ -81,7 +82,8 @@ public class MemoryRequest : IInteractable
         angleTarget = Vector3.zero;
     }
 
-    public override void DropOn(IInteractable dropped)
+    public override bool DropOn(IInteractable dropped)
     {
+        return false;
     }
 }
